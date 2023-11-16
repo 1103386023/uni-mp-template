@@ -23,10 +23,8 @@ const onLogout = () => {
 <template>
   <view class="viewport">
     <!-- 列表1 -->
-    <view class="list" v-if="true">
-      <navigator url="/pagesMember/address/address" hover-class="none" class="item arrow">
-        我的收货地址
-      </navigator>
+    <view class="list" v-if="memberStore.profile">
+      <navigator url="./address/address" hover-class="none" class="item ar row"> 我的收货地址 </navigator>
     </view>
     <!-- 列表2 -->
     <view class="list">
@@ -36,11 +34,11 @@ const onLogout = () => {
     </view>
     <!-- 列表3 -->
     <view class="list">
-      <navigator hover-class="none" class="item arrow" url=" ">关于</navigator>
+      <navigator hover-class="none" class="item arrow" url=" ">关于哪李贵了</navigator>
     </view>
     <!-- 操作按钮 -->
-    <view class="action">
-      <view class="button" @tap="onLogout">退出登录</view>
+    <view class="action" v-if="memberStore.profile">
+      <view @tap="onLogout" class="button">退出登录</view>
     </view>
   </view>
 </template>
